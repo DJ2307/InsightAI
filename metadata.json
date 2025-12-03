@@ -1,0 +1,5 @@
+{
+  "name": "InsightStream AI",
+  "description": "A dual-view simulator demonstrating how AI tracks user behavior (e-commerce) and translates it into actionable marketing insights using Gemini 2.5.",
+  "requestFramePermissions": []
+}
