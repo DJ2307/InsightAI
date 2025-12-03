@@ -3,8 +3,8 @@ import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend 
 } from 'recharts';
 import { BrainCircuit, Activity, MousePointer2, Search, Zap, Loader2, Trash2 } from 'lucide-react';
-import { UserEvent, MarketingInsight } from '../types';
-import { analyzeUserBehavior } from '../services/geminiService';
+import { UserEvent, MarketingInsight } from '../types.ts';
+import { analyzeUserBehavior } from '../services/geminiService.ts';
 
 interface DashboardProps {
   events: UserEvent[];

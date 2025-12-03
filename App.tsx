@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { LayoutDashboard, ShoppingBag, Terminal } from 'lucide-react';
-import Store from './components/Store';
-import Dashboard from './components/Dashboard';
-import { UserEvent } from './types';
+import Store from './components/Store.tsx';
+import Dashboard from './components/Dashboard.tsx';
+import { UserEvent } from './types.ts';
 import { v4 as uuidv4 } from 'uuid';
 
 const App: React.FC = () => {

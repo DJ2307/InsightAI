@@ -1,5 +1,5 @@
 import { GoogleGenAI, Type, GenerateContentResponse } from "@google/genai";
-import { UserEvent, MarketingInsight } from "../types";
+import { UserEvent, MarketingInsight } from "../types.ts";
 
 // Initialize the Gemini client securely using the environment variable.
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });

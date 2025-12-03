@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Search, ShoppingCart, Info, Plus, Check } from 'lucide-react';
-import { MOCK_PRODUCTS } from '../constants';
-import { UserEvent, Product } from '../types';
+import { MOCK_PRODUCTS } from '../constants.ts';
+import { UserEvent, Product } from '../types.ts';
 
 interface StoreProps {
   trackEvent: (type: UserEvent['type'], details: string) => void;
