@@ -1,6 +1,9 @@
 import { GoogleGenAI, Type, GenerateContentResponse } from "@google/genai";
 import { UserEvent, MarketingInsight } from "../types.ts";
 
+// Initialize the Gemini client securely using the environment variable.
+const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+
 export const analyzeUserBehavior = async (events: UserEvent[]): Promise<MarketingInsight> => {
   if (events.length === 0) {
     return {
@@ -31,15 +34,6 @@ export const analyzeUserBehavior = async (events: UserEvent[]): Promise<Marketin
   `;
 
   try {
-    // Initialize the client strictly within the function to avoid top-level crashes
-    // if the environment variable is missing during initial page load.
-    const apiKey = process.env.API_KEY;
-    if (!apiKey) {
-      throw new Error("API_KEY is missing. Please set it in your environment.");
-    }
-
-    const ai = new GoogleGenAI({ apiKey: apiKey });
-
     const response: GenerateContentResponse = await ai.models.generateContent({
       model: "gemini-2.5-flash",
       contents: prompt,
@@ -74,10 +68,10 @@ export const analyzeUserBehavior = async (events: UserEvent[]): Promise<Marketin
   } catch (error) {
     console.error("AI Analysis failed:", error);
     return {
-      summary: "AI analysis unavailable.",
-      userPersona: "System Error",
+      summary: "AI analysis failed due to technical error.",
+      userPersona: "Error",
       predictedInterests: [],
-      marketingStrategy: "Check API Key configuration."
+      marketingStrategy: "Check API Configuration or Logs."
     };
   }
 };
